@@ -2,8 +2,13 @@
 Source code for project synthesis Minecraft mod for Forge
 
 ## Repository Content
-  (Overview of repo focus content)
+  
+### Main
+This repository contains documentation related to the development of this mod.
 
+### Other Repositorys
+(Overview of repo focus content)
+  
 ## Reporting a New Issue
   (walkthought of reporting a new an issue here)
 
