@@ -2,21 +2,17 @@
 Source code for project synthesis Minecraft mod for Forge
 
 ## Repository Content
-  
+Outline of Repository files and dictionary content  
 ### Main
-This repository contains documentation related to the development of this mod.
+This repository contains documentation and graphics related to the development of this mod.
 
-### Other Repositorys
-(Overview of repo focus content)
-  
-## Reporting a New Issue
-  (walkthought of reporting a new an issue here)
+### Mod Production
+production versions of the mods code can be found under diffrent branches simply find the version of the mod you require.
 
-## Repository Layout
-Diffrent repository branches contain diffrent versions of the mod source files it does not contain the Gradle build files require to test or build these source files.
-
-### Branch Naming Schema
-Branches are named with there build type (production, development) followed by their minecraft version (1.12.x, 1.7.10). branch naming may also contain extra keywords such as experimental, alpha or any other required keywords,
+### Mod Development
+development versions of the mod can also be found under diffrent branches listed as development rather than production. 
+## Branch Naming Schema
+Branches are named with there build type (production, development) followed by their minecraft version (1.12.x, 1.7.10). branch naming may also contain extra keywords such as experimental, alpha or any other required keywords.
 
 ## Authors
 DarkNoon5891, PURPL3_DR4G0N
