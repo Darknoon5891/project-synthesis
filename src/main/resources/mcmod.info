@@ -1,0 +1,15 @@
+[
+{
+  "modid": "ps",
+  "name": "Project Synthesis",
+  "description": "Synthesis has only just begun",
+  "version": "0.1",
+  "mcversion": "1.12",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["DarkNoon5891", "PURPL3_DR4G0N"],
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
