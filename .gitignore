@@ -1,0 +1,14 @@
+#workspace files
+bin/**
+build/**
+run/**
+.settings/**
+.vscode/**
+
+#gradle cache
+.gradle/**
+
+#java project files
+.classpath
+.project
+
