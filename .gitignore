@@ -4,6 +4,7 @@ build/**
 run/**
 .settings/**
 .vscode/**
+util/**
 
 #gradle cache
 .gradle/**
