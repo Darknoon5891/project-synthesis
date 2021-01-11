@@ -13,4 +13,4 @@ run/**
 .project
 
 #python cache
-util/Importer/__pycache__/Main.cpython-38.pyc
+util/Importer/__pycache__/**
