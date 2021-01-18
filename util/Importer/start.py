@@ -6,29 +6,24 @@ class Start():
             global os
             import os
             separator = "\\"
-            filePathArray = []
-            filePath = os.path.realpath(__file__)
-            filePathArray = filePath.split(separator) #creates array out of string
-            filePathArray.remove(filePathArray[-1]) #removes file name from path
-            dirPath = separator.join(filePathArray)
-            os.chdir(dirPath) #sets work path
+            filepatharray = []
+            filepath = os.path.realpath(__file__)
+            filepatharray = filepath.split(separator) #creates array out of string
+            filepatharray.remove(filepatharray[-1]) #removes file name from path
+            dirpath = separator.join(filepatharray)
+            os.chdir(dirpath) #sets work path
 
-        except Exception as e:
+        except Exception:
             print("Error Setting Up Work Enviroment Path")
             print("Errors Expected")
 
-        try:
-            global main
 
-            import main
-
-            return 
-
-        except ModuleNotFoundError as e:
-            print("Module Error Detected")
+        #imports
+        import main 
 
         #run required pre-main functions
-   
+    
+        #call main modual
         main.Main()
     
 
