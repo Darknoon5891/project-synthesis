@@ -31,7 +31,9 @@ generate a GitHub commit message for the user as the changes will be required to
 note: inputting information from CSV, tables or other used formats can be integrated into the importer
 
 ## Version Compatability
-the diffrent in the forge mod loaders (fml) api 
+currently the importer can detect and fetch the mod minecraft version in the mcmod.info file. 
+the difference in the forge mod loaders (fml) api is currently unknown however the file writing will be based on a templating system 
+with a different template for each mc version reducing the risk of any invalid code being written to the source code
 
 ### Currently Supported Versions
 1.12.2
