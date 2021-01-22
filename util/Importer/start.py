@@ -3,7 +3,6 @@ class Start():
     def __init__(self):
         #setup file path enviroment
         try:
-            global os
             import os
             separator = "\\"
             filepatharray = []
@@ -13,18 +12,17 @@ class Start():
             dirpath = separator.join(filepatharray)
             os.chdir(dirpath) #sets work path
 
-        except Exception:
+        except ModuleNotFoundError:
             print("Error Setting Up Work Enviroment Path")
             print("Errors Expected")
-
-
-        #imports
-        import main 
+        
+        global menu
+        import menu 
 
         #run required pre-main functions
-    
+
         #call main modual
-        main.Main()
+        menu.Main()
     
 
 if __name__ == "__main__":
