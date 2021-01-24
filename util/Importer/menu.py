@@ -50,7 +50,7 @@ class Main():
             ut.message("rnv")
             time.sleep(1)
             os.system("cls")
-            Main.main_menu()
+            Main.main_interface()
 
     def getbuild_mcversion():
         
