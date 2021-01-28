@@ -18,17 +18,22 @@ A git commit message will be printed you will then be required
 to commit the change to the branch using the message
 
 ## How it works
-the importer will attempt to access the mcmod.info file on the current branch and get the acceptable mcversion from within the file.
-
+### Input
 the game object will require a title for the lang and an unlocalized name to be used for registry and texture events
-the name will be given in lang format with manipulation required for conversion to unlocalized name.
+### Resources
+the name will be given in the localized name format e.g. Magnite Gam, with manipulation required for conversion to unlocalized name. this will be used for the lang
 (there will be a naming convention rule)
 
+the texture files will be required to be in the corresponding graphics folder prior to using the importer
+if the png file should have the correct name e.g. magnite_gem.png the importer will append it to the source code using the enterted title
+
+the models json code can be generated from a template using the item/block name.
+
 simple confirmation code holding the result in an array before applying the actions on the source code
-
-generate a GitHub commit message for the user as the changes will be required to be committed (like a receipt)
-
-note: inputting information from CSV, tables or other used formats can be integrated into the importer
+### Github commit message
+generate a GitHub commit message for the user as the changes will be required to be committed 
+(like a receipt)
+this could be intgrated in the future
 
 ## Version Compatability
 currently the importer can detect and fetch the mod minecraft version in the mcmod.info file. 
