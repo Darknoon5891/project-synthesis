@@ -1,5 +1,5 @@
 # Importer for Project Synthesis
-# This importer will allow items to be added into the source code with no coding required
+# Author - Darknoon5891
 
 class Main():
     def __init__(self):
