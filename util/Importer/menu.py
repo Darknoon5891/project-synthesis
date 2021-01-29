@@ -17,12 +17,12 @@ class Main():
         print("This script is designed to add items into the mod source code")
         print("if you have moved this file outside of the git file structure errors will occur")
         print("currently only adding items are supported")
-        print("Current mod mc version:", buildMCVersion)
-        print("")
 
         Main.main_interface()
 
     def main_interface():
+        print("Current mod mc version:", buildMCVersion)
+        print("")
         #Main Options
         print("What operation do you require:")
         print("Enter [A]dd to add an object")
