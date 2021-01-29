@@ -1,51 +1,59 @@
-# easy access re-callable functions
-
-# util = ut
-# function names use short name for efficiency
-# however its simple to understand their function
+#util moudel for project synthesis importer
 
 # Required Functions
-
 def get_required_imports(*args):
-
-    argsLen = len(args)
-
-    if argsLen == 0:
-        return
-
-    for i in args:
-        print(i)
+    if len(args) == 0:
+        return False
+    else:
+        return args
 
 # Message Functions 
-
 def message(code):
-
+    import os
     import time
 
     code = str(code)
     messages = {
-        "short_name" : ["name message", "required import(s) (new string per import)"],
-        "rnv" : ["Response not valid"]
+        "short_name" : ["name message"],
+        "rnv" : ["Response not valid"],
+        "e" : ["An error has occured"]
     }
 
-    #get message and imports from messagesdict
-    for i in messages:
-        if messages[i] == code:
-            for x in messages[i]:
-                print(x)
-
-    #assign imports to messageImports
-    # get_required_imports(messageImports)
-
-    #assign message to messageString
-    # print(messageString)
     try:
+        os.system("cls")
         print(messages[code][0])
-    
     except IndexError:
         print("error occoured")
-        time.sleep(1)
-            
 
     time.sleep(1)
     return
+
+#validate inputs (input protection)
+def input_validation(input_data, input_type):
+
+    #expected importer input types ("name" : ["type", "validation", "comment"])
+    typedict = {
+        "objectName" : ["str", 0, "noSpace"]
+    }
+
+    #assign type code
+    try:
+        input_code = typedict[input_type][1]
+    except ValueError:
+        raise ValueError
+
+    #cutom type checks
+    if input_code == 0:
+        try:
+            if type(input_data) == str and input_data.isdigit() == False:
+                pass
+            else:
+                raise ValueError
+        except ValueError:
+            raise ValueError
+        
+
+if __name__ == "__main__":
+    print("please run via start")
+else:
+    pass
