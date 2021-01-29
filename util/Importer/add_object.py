@@ -23,6 +23,7 @@ class Interface():
                 
 
     def add_object_get_info(object_type):
+        os.system("cls")
         print("Adding", object_type)
         
         try:
@@ -34,7 +35,7 @@ class Interface():
         except ValueError:
             ut.message("rnv")
 
-        print(object_type, "name:", object_name)
+        print("%s name: %s" % (object_type, object_name))
 
         try:
             while True:
@@ -45,8 +46,11 @@ class Interface():
                 conformation = input("")
                 conformation = conformation.upper()
 
-                if conformation[0] != "Y":
-                    print(os.listdir("../graphics"))
+                if conformation[0] == "Y":
+                    #check for texture
+                    graphics_dir = os.listdir("../graphics")
+                    #add texture search method
+
                     break
                 else:
                     os.system("cls")
@@ -54,25 +58,48 @@ class Interface():
         except Exception:
             ut.message("rnv")
 
-        try:
+        if object_type == "item":
             Item() #make item
-        except Exception:
-            ut.message("e")
+        elif object_type == "block":
+            Block()
+        else:
+            raise ValueError
     
-
         
 class Item():
     def __init__(self):
         print("Adding Item")       
 
-    #add item to itemArray (ModItems)
+    #add item to itemArray (ModItems array)
+
     #add item base
+        #add unlocalizedname
+        #add registryname
+        #add creative tab
+        #add array regestry (item)
 
-    #add lang
-    #add model
-    #add texture
+    #resources
+        #add lang (text append)
+        #add model (json)
+        #add texture (png)
 
+class Block():
+    def __init__(self):
+        print("Adding Block")
 
+    #add item to itemArray (ModBlocks array)
+        #add material
+
+    #add block base
+        #add unlocalizedname
+        #add registryname
+        #add creative tab
+        #add array regstery (item and block)
+
+    #resources
+        #add lang (text append)
+        #add model (json)
+        #add texture (png)
 
 
 if __name__ == "__main__":
