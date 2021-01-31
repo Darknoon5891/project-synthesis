@@ -18,7 +18,7 @@ class Start():
         
         global menu
         import menu 
-        menu.Main() #call menu modual
+        menu.interface() #call menu modual
     
 
 if __name__ == "__main__":
