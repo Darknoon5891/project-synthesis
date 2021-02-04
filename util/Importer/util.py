@@ -1,6 +1,6 @@
 #util moudel for project synthesis importer
 
-# Required Functions
+# get required moduels
 def get_required_imports(*args):
     if len(args) == 0:
         return False
@@ -14,7 +14,7 @@ def message(code):
 
     code = str(code)
     messages = {
-        "short_name" : ["name message"],
+        "short_name" : ["message content"],
         "rnv" : ["Response not valid"],
         "e" : ["An error has occured"]
     }
@@ -26,19 +26,20 @@ def message(code):
         print("error occoured")
 
     time.sleep(1)
-    return
+    os.system("cls")
+    #return to caller function
 
 #validate inputs (input protection)
 def input_validation(input_data, input_type):
 
     #expected importer input types ("name" : ["type", "validation", "comment"])
-    typedict = {
-        "objectName" : ["str", 0, "noSpace"]
+    types_dict = {
+        "object_name" : ["str", 0, "used for naming, registration and texturing when manipulating objects"]
     }
 
     #assign type code
     try:
-        input_code = typedict[input_type][1]
+        input_code = types_dict[input_type][1]
     except ValueError:
         raise ValueError
 
@@ -49,9 +50,10 @@ def input_validation(input_data, input_type):
                 pass
             else:
                 raise ValueError
+
         except ValueError:
             raise ValueError
-        
+
 
 if __name__ == "__main__":
     print("please run via start")
