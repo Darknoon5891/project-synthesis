@@ -1,7 +1,7 @@
 # Importer for Project Synthesis
 # Author - Darknoon5891
 
-def interface():
+def initialize():
     global os, time 
     import os, time
 
@@ -10,42 +10,47 @@ def interface():
     import add_object
 
     #run pre required functions
-    Main.getbuild_mcversion()
+    getbuild_mcversion()
 
     print("This script is designed to add items into the mod source code")
     print("if you have moved this file outside of the git file structure errors will occur")
     print("currently in development")
 
+    #call menu
+    main_menu()
+
+def main_menu():
     print("Current mod mc version:", buildMCVersion)
     print("")
-    #Main Options
+
+    #nav options
     print("What operation do you require:")
-    print("Enter [A]dd to add an object")
-    print("Enter [E]dit to edit an object")
-    print("Enter [D]elete to remove an object")
+    print("Enter [a]dd to add an object")
+    print("Enter [e]dit to edit an object")
+    print("Enter [d]elete to remove an object")
 
     enter = input()
-    enter = enter.upper()
+    enter = enter.lower()
     os.system("cls")
 
-    Main.nav(enter)
+    nav(enter)
 
 def nav(code):
 
     directory = {
-        "A" : add_object.Interface,
-        "E" : "edit_object.Interface",
-        "D" : "remove_object.Interface",
+        "a" : add_object.interface,
+        "e" : "edit_object.Interface",
+        "d" : "remove_object.Interface",
     }
 
     try:
         call = directory.get(code)
         call()
-    except Exception as e:
+    except Exception:
         ut.message("rnv")
         time.sleep(1)
         os.system("cls")
-        Main.main_interface()
+        main_menu()
 
 def getbuild_mcversion():
     
@@ -54,12 +59,12 @@ def getbuild_mcversion():
     path = ["../../src/main/resources/mcmod.info"]
     for i in range(len(path)):
         a = open(path[i], "r")
-        aRead = a.read()
+        a_read = a.read()
         a.close()
         
         try:
-            x = (aRead.index('"mcversion": ') + 13)
-            buildMCVersion = aRead[x:]
+            x = (a_read.index('"mcversion": ') + 13)
+            buildMCVersion = a_read[x:]
 
             #expects to encounter close quotation mark within 10 chars 
             y = 0
@@ -83,4 +88,4 @@ def getbuild_mcversion():
 if __name__ == "__main__":
     print("please run via start")
 else:
-    Main()
+    initialize()

@@ -10,7 +10,7 @@ Command Line Interface (CLI)
 Python 3.x (Tested on 3.9.1) <br>
 official python download link: https://www.python.org/downloads/ <br>
 
-GitHub: /Add version here/ <br>
+GitHub: latest recommended <br>
 official github downland link: https://desktop.github.com/ <br>
 GitHub CLI is also supported <br>
 
@@ -22,7 +22,6 @@ Git must also be installed on the system you can type `where git` in the command
 ### Start
 To run the importer run the start.py script found in the importer dictionary attempting to run any
 other script will result in failure.
-
 If the script fails to run please check you have all the pre-requisites and python is configured correctly.
 ### Menu
 The menu is the main interface and the first thing you see when running the importer, your current branch version will be at the top followed by multiple options such as adding or deleting an item or block.
@@ -39,10 +38,9 @@ To add an item follow the on screen instructions, you will be asked to select th
 ### Github Commit Message
 ## How it works
 ### Required Inputs
-#### Add game object
-- Name
-- Texture File
-- add additional inputs
+- Object Name
+- Object Type
+- Object Texture File
 ### Resources
 the name will be given in the localized (en_us) name format e.g. Magnite Gam, with manipulation required for conversion to unlocalized name. this will be used for the lang
 (there will be a naming convention rule)

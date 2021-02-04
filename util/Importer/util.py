@@ -1,6 +1,6 @@
-#util moudel for project synthesis importer
+#util model for project synthesis importer
 
-# get required moduels
+# get required modules
 def get_required_imports(*args):
     if len(args) == 0:
         return False
@@ -16,14 +16,14 @@ def message(code):
     messages = {
         "short_name" : ["message content"],
         "rnv" : ["Response not valid"],
-        "e" : ["An error has occured"]
+        "e" : ["An error has occurred"]
     }
 
     try:
         os.system("cls")
         print(messages[code][0])
     except IndexError:
-        print("error occoured")
+        print("error occurred")
 
     time.sleep(1)
     os.system("cls")
@@ -37,17 +37,20 @@ def input_validation(input_data, input_type):
         "object_name" : ["str", 0, "used for naming, registration and texturing when manipulating objects"]
     }
 
+
     #assign type code
     try:
         input_code = types_dict[input_type][1]
+        input_data_len = len(input_data) 
     except ValueError:
         raise ValueError
 
-    #cutom type checks
+    #custom type checks
     if input_code == 0:
         try:
             if type(input_data) == str and input_data.isdigit() == False:
-                pass
+                if input_data_len > 3 and input_data_len < 24:
+                    pass
             else:
                 raise ValueError
 

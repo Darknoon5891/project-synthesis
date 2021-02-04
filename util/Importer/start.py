@@ -13,12 +13,12 @@ class Start():
             os.chdir(dirpath) #assigns working dictionary
 
         except ModuleNotFoundError:
-            print("Error Setting Up Work Enviroment Path")
+            print("Error setting up work environment path")
             print("Errors Expected")
         
         global menu
         import menu 
-        menu.interface() #call menu modual
+        menu.initialize() #call menu module
     
 
 if __name__ == "__main__":
