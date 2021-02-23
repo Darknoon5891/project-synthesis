@@ -52,8 +52,9 @@ def add_object_get_info(object_type):
             conformation = conformation.lower()
 
             if conformation[0] == "y":
-                object_texture_path = get_object_texture_file(object_name) #check for texture
+                object_texture_path = ObjectTextureFile(object_name) #check for texture
                 construct_object(object_type, object_name, object_texture_path) #construct object
+                #confirmation and receipt
             elif conformation[0] == "m":
                 menu.main_menu()
             else:
@@ -62,67 +63,84 @@ def add_object_get_info(object_type):
 
     except Exception:
         ut.message("rnv")
-
-
-def get_object_texture_file(object_name):
-
-    file_format_type = ".png" 
-    working_dir = "../graphics/"
-    working_dir_array = ["..", "graphics"]
-    dir_ls_array = os.listdir(working_dir)
-
-    textrue_file_criteria = [[0, "material name matched"], [0, "object name matched (no conflict)"], [0, "file type valid"]]
-    texture_file_valid = False
-
-    texture_file_path = [] #path in list format
-    object_texture_path = "" #path to be returned (str)
-
-    #make expected object name
-    object_name_array = object_name.split() #object name split (array)
-    expected_object_texture_array_name = object_name_array
-    expected_object_texture_array = ["_"] * (len(expected_object_texture_array_name) * 2 - 1)
-    expected_object_texture_array[0::2] = expected_object_texture_array_name
-    expected_object_texture_array.append(file_format_type)
-    expected_object_texture_name = "".join(expected_object_texture_array)
-
-    #case 1 match martial and object name
-    try:
-        #match material type
-        for i in object_name_array:
-            textures_found = 0
-            for x in range(len(dir_ls_array)):
-                if i == dir_ls_array[x]:
-                    textures_found += 1
-                    if textures_found > 1:
-                        raise FileExistsError
-                    working_dir_array.append(dir_ls_array[x])
-                    textrue_file_criteria[0][0] += 1 #update criteria
-                else:
-                    pass
-        
-        #update working dictionary
-        working_dir = "/".join(working_dir_array)
+class ObjectTextureFile:
+    def __init__(self, object_name):
+        file_format_type = ".png" 
+        working_dir = "../graphics/"
+        working_dir_array = ["..", "graphics"]
         dir_ls_array = os.listdir(working_dir)
 
-        #find texture file 
-        textures_found = 0 #textue files found
-        for i in dir_ls_array:
-            if i == expected_object_texture_name:
-                textures_found += 1
-            else:
-                #didn't match texture file name
-                pass
-    except Exception:
+        textrue_file_criteria = [[0, "material name matched"], [0, "object name matched (no conflict)"], [0, "file type valid"]]
+        texture_file_valid = False
+
+        texture_file_path = [] #path in list format
+        object_texture_path = "" #path to be returned (str)
+
+        #make expected object name
+        object_name_array = object_name.split() #object name split (array)
+        expected_object_texture_array_name = object_name_array
+        expected_object_texture_array = ["_"] * (len(expected_object_texture_array_name) * 2 - 1)
+        expected_object_texture_array[0::2] = expected_object_texture_array_name
+        expected_object_texture_array.append(file_format_type)
+        expected_object_texture_name = "".join(expected_object_texture_array)
+
+        find_texture()
+        return_texture_object()
+    
+    def find_texture(self, object_name_array, dir_ls_array, working_dir_array):
+        #pending redo
+
+        #case 1 match martial and object name
+        try:
+            #match material type
+            for i in object_name_array:
+                textures_found = 0
+                for x in range(len(dir_ls_array)):
+                    if i == dir_ls_array[x]:
+                        textures_found += 1
+                        if textures_found > 1:
+                            raise FileExistsError
+                        working_dir_array.append(dir_ls_array[x])
+                        textrue_file_criteria[0][0] += 1 #update criteria
+                    else:
+                        pass
+            
+            #update working dictionary
+            working_dir = "/".join(working_dir_array)
+            dir_ls_array = os.listdir(working_dir)
+
+            #find texture file 
+            textures_found = 0 #textue files found
+            for i in dir_ls_array:
+                if i == expected_object_texture_name:
+                    textures_found += 1
+                else:
+                    #didn't match texture file name
+                    pass
+        except Exception:
+            pass
+
+        #case 2 match object name
+        print("breakpoint")
+    
+    def update_texture_criteria(self, criteria_name, criteria_value):
+        #updates the texture criteria array
         pass
 
-    #case 2 match object name
-    print("breakpoint")
-    #resolve conflicts        
-    #manual entry if no file is found
-        
-    #make texture string
-    return object_texture_path
+    def resolve_texture_conflicts(self, textures_found):
+        #resolve conflicts   
+        if textures_found > 1:
+            print("More than 1 texture file has been found")
+            print("Please select the correct texture")
+        elif textures_found == 0:
+            #manual entry if no texture file is found
+            print("no texture file found please direct the program to the file")
+            print("")
+            pass
 
+    def return_texture_file_object(self):
+        #add return texture file object path 
+        pass
 
 def construct_object():
     #add object construction and init
